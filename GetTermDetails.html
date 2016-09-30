@@ -1,0 +1,63 @@
+
+
+<script type="text/x-red" data-template-name="SIM Details">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-url"><i class="fa fa-globe"></i> AT&T CC url</label>
+        <input type="text" id="node-input-url" placeholder="https://apitest.jasperwireless.com">
+    </div>
+    <div class="form-row">
+       <label for="node-input-username"><i class="fa fa-user"></i> Username</label>
+       <input type="password" id="node-input-username" placeholder="">
+    </div>
+    <div class="form-row">
+       <label for="node-input-password"><i class="fa fa-lock"></i> Password</label>
+       <input type="password" id="node-input-password" placeholder="">
+    </div>
+    <div class="form-row">
+       <label for="node-input-apiLicenseKey"><i class="icon-tag"></i>API License Key</label>
+       <input type="text" id="node-input-apiLicenseKey" placeholder="">
+    </div>
+    <div class="form-row">
+       <label for="node-input-ICCID"><i class="icon-tag"></i> ICCID</label>
+       <input type="text" id="node-input-ICCID" placeholder="">
+    </div>
+   
+    </script>
+
+<script type="text/x-red" data-help-name="SIM Details">
+<p>With the following APIs you can examine the Terminal Details for an individual device.</p>
+<br/>
+<p>Each field in this node can be set in <code>msg</code> using CamelCase. ICCID has to be set as <code>msg.topic</code>.</p>
+<p><code>API License Key</code> - AT&T Control Center account&#39;s api license key. <b>(mandatory)</b></p>
+<p><code>ICCID</code> is the primary unique identifier of a SIM in Control Center. The ICCID is typically printed on the SIM card itself. <b>(mandatory)</b><p>
+<p>Returns detailed information for the device.</p>
+
+</script>
+
+
+<script type="text/javascript">
+    RED.nodes.registerType('SIM Details',{
+        category: 'jasper',
+        color: '#00aee3',
+        defaults: {
+            name: {value:""},
+            url : {value:"https://apitest.jasperwireless.com"},
+            username : {value:""},
+            password : {value:""},
+            apiLicenseKey : {value:""},
+            ICCID : {value:""},
+            encryptObj: {value: ["username", "password"]}
+        },
+        outputs:1,
+        inputs:1,
+        icon: "file.png",
+        label: function() {
+            return this.name||"SIM DETAILS";
+        }
+    });
+</script>
+
